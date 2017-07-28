@@ -21,7 +21,7 @@ if __name__ == "__main__":
 
     fitness_service = build('fitness', 'v1', http=http)
 
-    data_set = auth.make_request(fitness_service, io.load_json("request.json"))
+    data_set = io.make_request(fitness_service, io.load_json("request.json"))
 
     steps_this_week = 0
 
