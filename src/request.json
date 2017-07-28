@@ -1,0 +1,13 @@
+{
+  "startTimeMillis": 1500436800000,
+  "endTimeMillis": 1501041600000,
+  "aggregateBy": [
+    {
+      "dataTypeName": "com.google.step_count_delta",
+      "dataSourceId": "derived:com.google.step_count.delta:com.google.android.gms:estimated_steps"
+    }
+  ],
+  "bucketByTime": {
+    "durationMillis": 3600000
+  }
+}

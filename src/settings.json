@@ -1,0 +1,4 @@
+{
+  "client_secrets_url": "../../client_secrets.json",
+  "oauth_scope": "https://www.googleapis.com/auth/fitness.activity.read"
+}
