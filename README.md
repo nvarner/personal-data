@@ -7,6 +7,7 @@ This tool is freely available under the MIT licence (see LICENCE) unless otherwi
 1. Make sure that Java and Python 3 are installed
 2. Install the Python Google API Client with
 ```pip3 install --upgrade google-api-python-client```
+and PyMySQL with ```pip3 install --upgrade PyMySQL```
 3. Create a wrapper directory (```mkdir personal-data```) and enter it (```cd personal-data```)
 4. Clone this Github repository with 
 ```git clone https://github.com/medude/personal-data.git``` or download and extract the zip file into the wrapper directory
