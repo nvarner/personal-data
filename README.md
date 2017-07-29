@@ -28,6 +28,6 @@ and PyMySQL with ```pip3 install --upgrade PyMySQL```
 ```
 
 ## Usage
-**If you skipped the previous section, make sure to at least follow step 2 and steps 5 through 12, or else it will not work!**
+**If you skipped the previous section, make sure to at least follow step 2 and steps 5 through 13, or else it will not work!**
 
 In ```src```, run ```python3 fit_data.py``` to download your step counts from Google Fit. You can modify ```request.json``` in ```src``` to change the time period.
