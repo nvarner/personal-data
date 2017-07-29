@@ -1,5 +1,6 @@
 # For some reason, "build" can't be found by PyCharm Community for me, but the program still runs fine, if you have that
 # problem. If you know the solution, please help!
+import datetime
 from apiclient.discovery import build
 
 from src import auth
@@ -23,13 +24,16 @@ if __name__ == "__main__":
 
     data_set = io.make_request(fitness_service, io.load_json("request.json"))
 
-    steps_this_week = 0
+    steps_object = {}
 
-    with open("../../steps.txt", "w") as f:
-        for bucket in data_set["bucket"]:
-            for point in bucket["dataset"]:
-                if len(point["point"]) is not 0:
-                    f.write(str(point["point"][0]["value"][0]["intVal"]) + "\n")
-                    steps_this_week += point["point"][0]["value"][0]["intVal"]
+    for bucket in data_set["bucket"]:
+        start_time = datetime.datetime.fromtimestamp(int(bucket["startTimeMillis"]) / 1000.0)
+        daily_steps = 0
 
-    print(steps_this_week)
+        for dataset in bucket["dataset"]:
+            if len(dataset["point"]) is not 0:
+                daily_steps += dataset["point"][0]["value"][0]["intVal"]
+
+            steps_object[str(start_time)] = daily_steps
+
+    io.make_json(steps_object, "../../steps.json")
