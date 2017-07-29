@@ -4,14 +4,14 @@ import datetime
 from apiclient.discovery import build
 
 from src import auth
-from src import io
+from src import in_out
 
 if __name__ == "__main__":
-    settings = io.load_json("settings.json")
+    settings = in_out.load_json("settings.json")
     client_secrets_url = settings["client_secrets_url"]
     oauth_scope = settings["oauth_scope"]
 
-    client_secrets = io.load_json(client_secrets_url)["installed"]
+    client_secrets = in_out.load_json(client_secrets_url)["installed"]
     client_id = client_secrets["client_id"]
     client_secret = client_secrets["client_secret"]
     redirect_uri = client_secrets["redirect_uris"][0]
@@ -22,7 +22,7 @@ if __name__ == "__main__":
 
     fitness_service = build('fitness', 'v1', http=http)
 
-    data_set = io.make_request(fitness_service, io.load_json("request.json"))
+    data_set = in_out.make_request(fitness_service, in_out.load_json("request.json"))
 
     steps_object = {}
 
@@ -36,4 +36,4 @@ if __name__ == "__main__":
 
             steps_object[str(start_time)] = daily_steps
 
-    io.make_json(steps_object, "../../steps.json")
+    in_out.make_json(steps_object, "../../steps.json")

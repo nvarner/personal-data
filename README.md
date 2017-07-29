@@ -7,6 +7,7 @@ This tool is freely available under the MIT licence (see LICENCE) unless otherwi
 1. Make sure that Java and Python 3 are installed
 2. Install the Python Google API Client with
 ```pip3 install --upgrade google-api-python-client```
+and PyMySQL with ```pip3 install --upgrade PyMySQL```
 3. Create a wrapper directory (```mkdir personal-data```) and enter it (```cd personal-data```)
 4. Clone this Github repository with 
 ```git clone https://github.com/medude/personal-data.git``` or download and extract the zip file into the wrapper directory
@@ -18,8 +19,15 @@ This tool is freely available under the MIT licence (see LICENCE) unless otherwi
 10. Choose your email and type a name in the product name box. It doesn't matter either.
 11. Choose download and put the resulting file in the wrapper directory that the project went into.
 12. Rename the file that you just downloaded to ```client_secrets.json```.
+13. Create a file next to ```client_secrets.json``` called ```login_data.json```. Edit it, adding the following JSON:
+```json
+{
+    "username": "<mysql_database_username>",
+    "password": "<mysql_database_password>"
+}
+```
 
 ## Usage
-**If you skipped the previous section, make sure to at least follow step 2 and steps 5 through 12, or else it will not work!**
+**If you skipped the previous section, make sure to at least follow step 2 and steps 5 through 13, or else it will not work!**
 
 In ```src```, run ```python3 fit_data.py``` to download your step counts from Google Fit. You can modify ```request.json``` in ```src``` to change the time period.
