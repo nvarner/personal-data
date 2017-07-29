@@ -20,7 +20,7 @@ class DBUser:
                 unhashed_codeword.join(random.SystemRandom().choice(string.ascii_uppercase + string.digits))
 
             m = hashlib.sha256()
-            m.update(bytes(unhashed_codeword))
+            m.update(bytes(unhashed_codeword, "UTF8"))
             self.code_word = m.digest()
 
             return unhashed_codeword
@@ -34,7 +34,7 @@ class DBUser:
                             "before using it.")
         else:
             m = hashlib.sha256()
-            m.update(bytes(unhashed_codeword))
+            m.update(bytes(unhashed_codeword, "UTF8"))
             if self.code_word == m.digest():
                 return self.username
             else:
@@ -46,7 +46,7 @@ class DBUser:
                             "before using it.")
         else:
             m = hashlib.sha256()
-            m.update(bytes(unhashed_codeword))
+            m.update(bytes(unhashed_codeword, "UTF8"))
             if self.code_word == m.digest():
                 return self.password
             else:

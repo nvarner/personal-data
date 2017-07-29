@@ -16,21 +16,13 @@ class DB:
                                           cursorclass=pymysql.cursors.DictCursor)
 
     def update(self, sql_statement):
-        try:
-            with self.connection.cursor() as cursor:
-                cursor.execute(sql_statement)
+        with self.connection.cursor() as cursor:
+            cursor.execute(sql_statement)
 
-            self.connection.commit()
-        finally:
-            self.connection.close()
+        self.connection.commit()
 
     def query(self, sql_statement):
-        result = None
-
-        try:
-            with self.connection.cursor() as cursor:
-                cursor.execute(sql_statement)
-                result = cursor.fetchall()
-        finally:
-            self.connection.close()
+        with self.connection.cursor() as cursor:
+            cursor.execute(sql_statement)
+            result = cursor.fetchall()
         return result
