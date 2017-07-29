@@ -19,6 +19,13 @@ and PyMySQL with ```pip3 install --upgrade PyMySQL```
 10. Choose your email and type a name in the product name box. It doesn't matter either.
 11. Choose download and put the resulting file in the wrapper directory that the project went into.
 12. Rename the file that you just downloaded to ```client_secrets.json```.
+13. Create a file next to ```client_secrets.json``` called ```login_data.json```. Edit it, adding the following JSON:
+```json
+{
+    "username": "<mysql_database_username>",
+    "password": "<mysql_database_password>"
+}
+```
 
 ## Usage
 **If you skipped the previous section, make sure to at least follow step 2 and steps 5 through 12, or else it will not work!**
