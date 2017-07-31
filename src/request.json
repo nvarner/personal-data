@@ -1,6 +1,6 @@
 {
-  "startTimeMillis": 1500436800000,
-  "endTimeMillis": 1501041600000,
+  "startTimeMillis": 1501387200000,
+  "endTimeMillis": 1501473599000,
   "aggregateBy": [
     {
       "dataTypeName": "com.google.step_count_delta",
@@ -8,6 +8,6 @@
     }
   ],
   "bucketByTime": {
-    "durationMillis": 3600000
+    "durationMillis": 86400000
   }
 }
